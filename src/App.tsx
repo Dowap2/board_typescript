@@ -1,13 +1,17 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Board from './Board'
+import BoardModal from './BoardModal'
+import './App.css'
 
 function App() {
-  const onClick = (name: string) => {console.log(`${name} says hello`);};
+  const [modalOpen, setModalOpen] = useState<string>("modal__none");
+  const onClick = () => {setModalOpen("modal__block")};
+
   return (
     <div className="App">
-      <header className="App-header">
-        <Board name="gyeongtae" onClick={onClick}/>
-      </header>
+        <button onClick={onClick}>modal</button>
+        <BoardModal modalOpen={modalOpen} setModalOpen={setModalOpen}/>
+        <Board name="gyeongtae" />
     </div>
   );
 }
