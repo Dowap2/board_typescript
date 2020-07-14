@@ -1,14 +1,22 @@
 import React from 'react'
+import Post from './Post'
 
 type GreetingsProps = {
-    name: string;
-    mark?: string;
+  list: string[][];
+  setList: any;
 };
 
-function Board({ name, mark}: GreetingsProps) {
+let postList:any = [];
+
+function Board({list ,setList}: GreetingsProps) {
+  for(let i:number=0; i<list.length; i++){
+    const postItem:any = (<Post title={list[i][0]}/>)
+    postList = postList.concat(postItem)
+    setList(list[i][0] == null)
+  }
     return (
       <div>
-        {name} {mark}
+        {postList}
       </div>
     );
 }
