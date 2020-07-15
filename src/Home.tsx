@@ -22,7 +22,7 @@ function Home() {
             list={list}
             setList={setList}
           />
-          <Board list={list} setList={setList}/>
+          <Board list={list}/>
       </div>
     );
 }
