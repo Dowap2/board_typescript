@@ -7,14 +7,25 @@ type BoardModalProps = {
     setTitle: any;
     mainText: string;
     setMainText: any;
-    list: string[][];
+    list: Array<Obj>;
     setList: any;
 };
+
+type Obj = {
+	title: string;
+	mainText: string;
+}
+
 function BoardModal({modalOpen , setModalOpen , title , setTitle , mainText , setMainText ,list , setList}: BoardModalProps) {
     const post = () =>{
-        const postItem: string[][] = [[title,mainText]]
+        const postItem:Obj = {
+            title: title,
+            mainText: mainText
+        }
+        let listItem: Array<Obj> = [];
+        listItem = list.concat(postItem);
         setModalOpen("modal__none");
-        setList(list.concat(postItem));
+        setList(listItem);
     }
     return (
       <div className={modalOpen}>

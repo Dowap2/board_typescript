@@ -37,8 +37,24 @@
   display: flex;
 }
 .post__list{
-  width: 500px;
+  width: 600px;
   height: 40px;
-  background-color: royalblue;
-  text-align: center;
+  border-bottom: 1px solid #aaaaaa;
+  text-align: left;
+  line-height: 40px;
+  margin: auto;
+}
+.post__list__title{
+  margin-left: 20px;
+  font-weight: bold;
+}
+.post__button{
+  width: 80px;
+  height: 40px;
+  background-color: #ffffff;
+  border: 2px solid royalblue;
+  border-radius: 5px;
+  position: fixed;
+  top: 10px;
+  right: 10px;
 }

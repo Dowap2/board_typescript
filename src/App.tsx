@@ -1,29 +1,16 @@
-import React, { useState } from 'react';
-import Board from './Board'
-import BoardModal from './BoardModal'
+import React from 'react';
+import { BrowserRouter as Router, Route, } from 'react-router-dom';
+import Home from './Home'
+import DetailPost from './DetailPost'
 import './App.css'
 
 function App() {
-  const [modalOpen, setModalOpen] = useState<string>("modal__none");
-  const [title, setTitle] = useState<string>("");
-  const [mainText, setMainText] = useState<string>("");
-  const [list , setList] = useState<string[][]>([]);
-  const onClick = () => {setModalOpen("modal__block")};
-
   return (
     <div className="App">
-        <button onClick={onClick}>modal</button>
-        <BoardModal 
-          modalOpen={modalOpen}
-          setModalOpen={setModalOpen}
-          title={title}
-          setTitle={setTitle}
-          mainText={mainText}
-          setMainText={setMainText}
-          list={list}
-          setList={setList}
-        />
-        <Board list={list} setList={setList}/>
+      <Router>
+        <Route path="/home" component={Home}/>
+        <Route path="/post" component={DetailPost}/>
+      </Router>
     </div>
   );
 }
