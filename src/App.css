@@ -36,10 +36,19 @@
 .modal__button{
   display: flex;
 }
+.post__list__box{
+  width: 80%;
+  padding: 100px;
+  margin: auto;
+  text-align: left;
+}
+.post__list__title{
+  padding-bottom: 10px;
+  border-bottom: 1px solid #000000;
+}
 .post__list{
-  width: 600px;
+  width: 100%;
   height: 40px;
-  border-bottom: 1px solid #aaaaaa;
   text-align: left;
   line-height: 40px;
   margin: auto;
@@ -80,14 +89,4 @@
   border-top: 1px solid #000000;
   line-height: 30px;
   padding-top: 20px;
-}
-.back__button{
-  width: 100px;
-  height: 40px;
-  position: fixed;
-  top: 10px;
-  right: 50px;
-  background-color: #ffffff;
-  border: 2px solid royalblue;
-  border-radius: 5px;
 }
