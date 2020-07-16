@@ -18,7 +18,7 @@ function Board({list}: BoardProps) {
     return (
       <div>
         <div className="post__list__box">
-          <div className="post__list__title">글 리스트 {index}개</div>
+          <div className="post__list__title">글 리스트 {index} 개</div>
           {postList}
         </div>
       </div>
