@@ -5,6 +5,12 @@ import DetailPost from './DetailPost'
 import './App.css'
 
 function App() {
+  const href:string = window.location.href
+  const path:Array<string> = href.split('/');
+  if(path[3] === ""){
+    window.location.pathname="/home";
+  }
+  console.log(path)
   return (
     <div className="App">
       <Router>
