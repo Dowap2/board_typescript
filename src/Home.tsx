@@ -4,9 +4,6 @@ import BoardModal from './BoardModal'
 
 function Home() {
     const [modalOpen, setModalOpen] = useState<string>("modal__none");
-    const [title, setTitle] = useState<string>("");
-    const [mainText, setMainText] = useState<string>("");
-    const [list , setList] = useState<Array<Object>>([]);
     const onClick = () => {setModalOpen("modal__block")};
 
     return (
@@ -15,14 +12,8 @@ function Home() {
           <BoardModal
             modalOpen={modalOpen}
             setModalOpen={setModalOpen}
-            title={title}
-            setTitle={setTitle}
-            mainText={mainText}
-            setMainText={setMainText}
-            list={list}
-            setList={setList}
           />
-          <Board list={list}/>
+          <Board />
       </div>
     );
 }
