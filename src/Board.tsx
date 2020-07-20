@@ -7,12 +7,14 @@ function Board() {
   
   const [boolean , setBoolean] = useState<boolean>(true);
   let [post , setPost] = useState<any[]>([])
+  let index:number = 1;
 
   function postFunc(list){
     list.forEach(function(list){
       setPost(post = post.concat(<Link to={{pathname: '/post', state: list}}>
-                                    <Post title={list.title} index={list.index}/>
+                                    <Post title={list.title} index={index}/>
                                   </Link>))
+      index += 1;
     })
   }
 
@@ -24,6 +26,7 @@ function Board() {
     })
       .then(response => {
         postFunc(response.data.contact)
+        console.log(response)
       }).catch(err => {console.log(err)})
     setBoolean(false)
   }
@@ -32,7 +35,6 @@ function Board() {
       <div>
         <div className="post__list__box">
           <div className="post__list__title">글 리스트 {post.length} 개</div>
-          <button onClick={e=> console.log(post)}>post</button>
           {post}
         </div>
       </div>

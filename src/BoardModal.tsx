@@ -9,7 +9,6 @@ type BoardModalProps = {
 function BoardModal({modalOpen , setModalOpen}: BoardModalProps) {
     const [title , setTitle] = useState<string>("");
     const [main , setMain] = useState<string>("");
-    const [index , setIndex] = useState<number>(1);
 
     function post(title , main){
         axios({
@@ -17,13 +16,11 @@ function BoardModal({modalOpen , setModalOpen}: BoardModalProps) {
             url: 'http://localhost:8000/api',
             data:{
                 title: title,
-                main: main,
-                index: index
+                main: main
             }
         }).then(response => {
             console.log(response)
         }).catch(err => {console.log(err)})
-        setIndex(index + 1);
     }
 
     return (
