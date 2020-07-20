@@ -9,25 +9,32 @@ type BoardModalProps = {
 function BoardModal({modalOpen , setModalOpen}: BoardModalProps) {
     const [title , setTitle] = useState<string>("");
     const [main , setMain] = useState<string>("");
-    const post = (title , main) =>{
+    const [index , setIndex] = useState<number>(1);
+
+    function post(title , main){
         axios({
-            method: 'post',
-            url: '/user/12345',
-            data: {
-              title: title,
-              main: main
+            method:'post',
+            url: 'http://localhost:8000/api',
+            data:{
+                title: title,
+                main: main,
+                index: index
             }
-        });
+        }).then(response => {
+            console.log(response)
+        }).catch(err => {console.log(err)})
+        setIndex(index + 1);
     }
+
     return (
       <div className={modalOpen}>
-          <form action="/contacts" method="post">
+          <form>
             <div className="modal">
                 <input type="text" className="input__title" name="title" placeholder="제목을 입력하시오." value={title} onChange={e => setTitle(e.target.value)}/>
                 <textarea className="input__text" name="main" placeholder="본문을 입력하시오" value={main} onChange={e => setMain(e.target.value)} />
                 <div className="modal__button">
                     <button onClick={e => post(title , main)}>post</button>
-                    <button type="reset"onClick={e => setModalOpen("modal__none")}>close</button>
+                    <button onClick={e => setModalOpen("modal__none")}>close</button>
                 </div>
             </div>
           </form>
