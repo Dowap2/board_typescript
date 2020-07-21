@@ -11,11 +11,21 @@ function Board() {
 
   function postFunc(list){
     list.forEach(function(list){
-      setPost(post = post.concat(<Link to={{pathname: '/post', state: list}}>
+      setPost(post = post.concat(<div>
+                                  <Link to={{pathname: '/post', state: list}}>
                                     <Post title={list.title} index={index}/>
-                                  </Link>))
+                                  </Link>
+                                  <button className="delete__button" onClick={e=> deleteFunc(list.title)}>delete</button>
+                                  
+                                </div>
+                                  )
+      )
       index += 1;
     })
+  }
+  function deleteFunc(title){
+    axios.delete('http://localhost:8000/api', {data:{title:title}, headers:{Authorization: "token"}})
+    window.location.reload()
   }
 
   if(boolean === true){

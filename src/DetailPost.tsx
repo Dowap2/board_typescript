@@ -7,10 +7,10 @@ function DetailPost({location}) {
       <div className="detail__post">
           <Link to="/home"><button className="post__button">뒤로가기</button></Link>
           <div className="detail__title">
-            제목 : {info.title}
+            제목 : {info.title || null}
           </div>
           <div className="detail__mainText">
-            {info.main}
+            {info.main || null}
           </div>
       </div>
     );
