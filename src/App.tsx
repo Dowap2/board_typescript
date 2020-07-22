@@ -10,7 +10,7 @@ function App() {
   if(path[3] === ""){
     window.location.pathname="/home";
   }
-  console.log(path)
+  
   return (
     <div className="App">
       <Router>
