@@ -15,12 +15,16 @@ function Board() {
 
   function postFunc(list){
     list.forEach(function(list){
-      setPost(post = post.concat(<div>
-                                  <Link to={{pathname: '/post', state: list}}>
-                                    <Post title={list.title} index={index}/>
-                                  </Link>
-                                  <button className="delete__button" onClick={e=> deleteFunc(list._id)}>delete</button>
-                                  <button onClick={e=> editModal(list._id)}>edit</button>
+      setPost(post = post.concat(<div className="post__list__small__box">
+                                  <div>
+                                    <button className="delete__button" onClick={e=> deleteFunc(list._id)}></button>
+                                    <button className="edit__button" onClick={e=> editModal(list._id)}></button>
+                                  </div>
+                                  <div>
+                                    <Link to={{pathname: '/post', state: list}}>
+                                      <Post title={list.title} index={index} time={list.time} like={list.like} bad={list.bad}/>
+                                    </Link>
+                                  </div>
                                 </div>
                                 )
       )
@@ -64,7 +68,7 @@ function Board() {
               <button onClick={e=> setModalOpen("modal__none")}>close</button>
             </form>
           </div>
-          <div className="post__list__title">글 리스트 {post.length} 개</div>
+          <div className="post__box__title">글 리스트 {post.length} 개</div>
           {post}
         </div>
       </div>

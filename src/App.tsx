@@ -10,9 +10,10 @@ function App() {
   if(path[3] === ""){
     window.location.pathname="/home";
   }
-  
+
   return (
     <div className="App">
+      <header className="header">header</header>
       <Router>
         <Route path="/home" component={Home}/>
         <Route path="/post" component={DetailPost}/>
