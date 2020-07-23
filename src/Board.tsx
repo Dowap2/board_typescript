@@ -6,7 +6,7 @@ import axios from 'axios';
 function Board() {
   
   const [boolean , setBoolean] = useState<boolean>(true);
-  const [modalOpen , setModalOpen] = useState<string>("modal__none");
+  const [modalOpen , setModalOpen] = useState<string>("edit__modal__none");
   let [post , setPost] = useState<any[]>([]);
   const [id , setId] = useState<string>("");
   const [title , setTitle] = useState<string>("");
@@ -15,15 +15,13 @@ function Board() {
 
   function postFunc(list){
     list.forEach(function(list){
-      setPost(post = post.concat(<div className="post__list__small__box">
-                                  <div>
-                                    <button className="delete__button" onClick={e=> deleteFunc(list._id)}></button>
-                                    <button className="edit__button" onClick={e=> editModal(list._id)}></button>
-                                  </div>
-                                  <div>
+      setPost(post = post.concat(<div>
+                                  <div className="post__list__small__box">
                                     <Link to={{pathname: '/post', state: list}}>
                                       <Post title={list.title} index={index} time={list.time} like={list.like} bad={list.bad}/>
                                     </Link>
+                                    <button className="delete__button" onClick={e=> deleteFunc(list._id)}>delete</button>
+                                    <button className="edit__button" onClick={e=> editModal(list._id)}>edit</button>
                                   </div>
                                 </div>
                                 )
@@ -32,7 +30,7 @@ function Board() {
     })
   }
   function editModal(id){
-    setModalOpen("modal__block");
+    setModalOpen("edit__modal__block");
     setId(id);
   }
   function editFunc(id , title , main){
@@ -61,11 +59,11 @@ function Board() {
       <div>
         <div className="post__list__box">
           <div className={modalOpen}>
-            <form>
-              <input type="text" name="title" id="title" value={title} onChange={e=> setTitle(e.target.value)}/>
-              <textarea name="main" id="main" value={main} onChange={e=> setMain(e.target.value)}></textarea>
+            <form className="edit__modal">
+              <input type="text" name="title" placeholder="수정할 제목을 입력해주세요" id="title" className="edit__modal__title" value={title} onChange={e=> setTitle(e.target.value)}/>
+              <textarea name="main" id="main" value={main} placeholder="수정할 본문을 입력해주세요" className="edit__modal__main" onChange={e=> setMain(e.target.value)}></textarea>
               <button onClick={e=> editFunc(id , title , main)}>edit</button>
-              <button onClick={e=> setModalOpen("modal__none")}>close</button>
+              <button onClick={e=> setModalOpen("edit__modal__none")}>close</button>
             </form>
           </div>
           <div className="post__box__title">글 리스트 {post.length} 개</div>

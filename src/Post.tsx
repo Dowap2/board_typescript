@@ -14,7 +14,7 @@ function Post({title , index , time, like ,bad}: GreetingsProps) {
         <div className="post__list__index">{index}</div>
         <div className="post__list__title">{title}</div>
         <div className="post__list__time">{time}</div>
-        <div className="post__like__bad">{like}, {bad}</div>
+        <div className="post__like__bad">좋아요:{like} 싫어요:{bad}</div>
       </div>
     );
 }

@@ -1,5 +1,10 @@
 @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;500&display=swap');
 
+a { text-decoration: none; color:black;}
+a:visited { text-decoration: none;}
+a:hover { text-decoration: none; }
+a:focus { text-decoration: none; }
+a:hover, a:active { text-decoration: none;}
 .App {
   text-align: center;
   height: 100vh;
@@ -12,9 +17,17 @@
   text-align: left;
   color: #ffffff;
   line-height: 60px;
-  background: #D4685F;
+  background: #ffffff;
+  border-bottom: #fafafa;
 }
-.modal__none{
+.logo__box{
+  width: 1000px;
+  margin: auto;
+}
+.logo{
+  width: 100px;
+}
+.modal__none , .edit__modal__none{
   display: none;
 }
 .modal__block{
@@ -28,6 +41,40 @@
   background-color: rgba(0, 0, 0, 0.4);
   z-index: 1000;
 }
+.edit__modal__block{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.4);
+  top: 0;
+  left: 0;
+}
+.edit__modal{
+  width: 1000px;
+  height: 500px;
+  background: #ffffff;
+  z-index: 1001;
+}
+.edit__modal__title{
+  width: 1000px;
+  height: 60px;
+  border: none;
+  border-bottom: 1px solid #000000;
+  padding: 0;
+  outline: none;
+}
+.edit__modal__main{
+  width: 1000px;
+  height: 200px;
+  resize: none;
+  border: 0;
+  padding: 0;
+  margin-top: 20px;
+  outline: none;
+}
 .modal{
   width: 1000px;
   height: 800px;
@@ -38,6 +85,9 @@
   height: 80px;
   border-radius: 0%;
   border: none;
+  margin: 0;
+  padding: 0;
+  outline: none;
 }
 .input__text{
   resize: none;
@@ -45,19 +95,24 @@
   height: 500px;
   border-radius: 0%;
   border: none;
+  margin: 0;
+  padding: 0;
+  outline: none;
 }
 .modal__button{
   display: flex;
 }
 .post__list__box{
-  width: 80%;
+  width: 1000px;
   margin: auto;
   text-align: left;
 }
 .post__box__title{
-  width: 900px;
+  width: 1000px;
   margin: auto;
   text-align: left;
+  margin-top: 40px;
+  margin-bottom: 10px;
 }
 .post__list{
   width: 900px;
@@ -65,27 +120,31 @@
   text-align: left;
   line-height: 40px;
   background: #ffffff;
-  border: 1px solid #f5f5f5;
   display: flex;
   margin: auto;
 }
+.post__list__small__box{
+  width: 1000px;
+  display: flex;
+  border: 1px solid #f5f5f5;
+}
 .post__list__title{
-  width: 700px;
+  width: 50%;
   font-weight: bold;
   margin: auto;
 }
 .post__list__index{
-  width: 30px;
+  width: 5%;
   text-align: center;
   font-weight: bold;
   margin: auto;
 }
 .post__list__time{
-  width: 140px;
+  width: 20%;
   text-align: left;
 }
 .post__like__bad{
-  width: 30px;
+  width: 15%;
   text-align: left;
 }
 .post__button{
@@ -95,7 +154,7 @@
   border: 2px solid royalblue;
   border-radius: 5px;
   position: fixed;
-  top: 80px;
+  top: 20px;
   right: 10px;
 }
 .detail__post{
@@ -122,10 +181,11 @@
   padding-top: 20px;
 }
 .delete__button , .edit__button{
-  width: 100px;
+  width: 5%;
   height: 40px;
-  background: none;
-  border: 1px solid rosybrown;
+  background: #ffffff;
+  border: none;
+  font-size: 10px;
   cursor: pointer;
   float: right;
 }

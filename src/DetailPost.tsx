@@ -10,7 +10,6 @@ function DetailPost({location}) {
     function likeFunc(){
       setLike(like+1);
       axios.put('http://localhost:8000/api/like',{params: {_id: info._id}, data:{like: like , bad: bad}})
-      console.log(like , bad)
     }
     function badFunc(){
       setBad(bad+1);
@@ -25,8 +24,9 @@ function DetailPost({location}) {
           <div className="detail__mainText">
             {info.main}
             {info.time}
-            <button onClick={e=> likeFunc()}>좋아요:{info.like}</button>
-            <button onClick={e=> badFunc()}>싫어요:{info.bad}</button>
+            <button onClick={e=> likeFunc()}>좋아요:{like}</button>
+            <button onClick={e=> badFunc()}>싫어요:{bad}</button>
+            <button onClick={e=> console.log(like , bad)}></button>
           </div>
       </div>
     );

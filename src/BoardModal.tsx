@@ -38,7 +38,7 @@ function BoardModal({modalOpen , setModalOpen}: BoardModalProps) {
         let hours = today.getHours(); // 시
         let minutes = today.getMinutes();
         
-        return (year+'/'+month+'/'+date+'/'+hours+':'+minutes);
+        return (year+'/'+month+'/'+date+'/'+hours+'시'+minutes+'분');
     }
 
     return (
