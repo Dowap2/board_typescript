@@ -1,7 +1,10 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;500&display=swap');
+
 .App {
   text-align: center;
   height: 100vh;
   background: #ebeef1;
+  font-family: 'Noto Sans KR', sans-serif;
 }
 .header{
   width: 100%;
@@ -52,12 +55,12 @@
   text-align: left;
 }
 .post__box__title{
-  width: 728px;
+  width: 900px;
   margin: auto;
   text-align: left;
 }
 .post__list{
-  width: 728px;
+  width: 900px;
   height: 40px;
   text-align: left;
   line-height: 40px;
@@ -72,10 +75,18 @@
   margin: auto;
 }
 .post__list__index{
-  width: 28px;
+  width: 30px;
   text-align: center;
   font-weight: bold;
   margin: auto;
+}
+.post__list__time{
+  width: 140px;
+  text-align: left;
+}
+.post__like__bad{
+  width: 30px;
+  text-align: left;
 }
 .post__button{
   width: 80px;
