@@ -35,11 +35,17 @@ a:hover, a:active { text-decoration: none;}
   align-items: center;
   justify-content: center;
   position: absolute;
+  text-align: left;
   top: 0;
   width: 100vw;
   height: 100vh;
   background-color: rgba(0, 0, 0, 0.4);
   z-index: 1000;
+}
+.modal__title{
+  padding-left: 20px;
+  padding-top: 20px;
+  font-weight: bold;
 }
 .edit__modal__block{
   display: flex;
@@ -81,26 +87,48 @@ a:hover, a:active { text-decoration: none;}
   background-color: #ffffff;
 }
 .input__title{
-  width: 100%;
-  height: 80px;
+  width: 950px;
+  height: 60px;
   border-radius: 0%;
-  border: none;
-  margin: 0;
+  border: 1px solid #f1f1f1;
+  margin: 20px;
   padding: 0;
+  padding-left: 10px;
   outline: none;
 }
 .input__text{
   resize: none;
-  width: 100%;
+  width: 950px;
   height: 500px;
   border-radius: 0%;
-  border: none;
-  margin: 0;
+  border: 1px solid #f1f1f1;
+  margin: 20px;
+  margin-top: 0;
   padding: 0;
+  padding-top: 10px;
+  padding-left: 10px;
   outline: none;
 }
 .modal__button{
+  width: 950px;
+  margin: auto;
   display: flex;
+}
+.modal__post__button , .modal__close__button{
+  width: 200px;
+  height: 50px;
+  border: none;
+  border-radius: 5px;
+}
+.modal__post__button{
+  color: #ffffff;
+  background: #46cff7;
+  margin: auto;
+  margin-right: 0;
+}
+.modal__close__button{
+  color: #4e4e4e;
+  margin-left: 0;
 }
 .post__list__box{
   width: 1000px;
@@ -150,35 +178,57 @@ a:hover, a:active { text-decoration: none;}
 .post__button{
   width: 80px;
   height: 40px;
-  background-color: #ffffff;
-  border: 2px solid royalblue;
+  color: #ffffff;
+  background: #46cff7;
+  border: none;
   border-radius: 5px;
   position: fixed;
-  top: 20px;
+  bottom: 20px;
   right: 10px;
 }
 .detail__post{
   text-align: left;
-  width: 60%;
-  height: 100%;
+  width: 900px;
+  height: 800px;
   margin: auto;
-  border: 1px solid #000000;
   padding: 50px;
+  background: #ffffff;
+  margin-top: 20px;
+}
+.detail__title__title{
+  font-size: 32px;
+  font-weight: bold;
+}
+.detail__title__time{
+  margin-top: 10px;
 }
 .detail__title{
   width: 100%;
   height: 100px;
-  font-size: 32px;
-  font-weight: bold;
-  line-height: 100px;
+  line-height: 32px;
 }
 .detail__mainText{
   width: 100%;
-  height: 800px;
+  height: 600px;
   font-size: 24px;
   border-top: 1px solid #000000;
   line-height: 30px;
   padding-top: 20px;
+}
+.detail__button__like , .detail__button__bad{
+  width: 200px;
+  height: 50px;
+  border: 0;
+  cursor: pointer;
+  margin: auto;
+}
+.detail__button__like{
+  color: #ffffff;
+  background: #46cff7;
+}
+.detail__button__bad{
+  color: #4e4e4e;
+  margin-left: 500px;
 }
 .delete__button , .edit__button{
   width: 5%;

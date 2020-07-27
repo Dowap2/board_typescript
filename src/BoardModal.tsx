@@ -45,11 +45,12 @@ function BoardModal({modalOpen , setModalOpen}: BoardModalProps) {
       <div className={modalOpen}>
           <form>
             <div className="modal">
+                <div className="modal__title">글쓰기</div>
                 <input type="text" className="input__title" name="title" placeholder="제목을 입력하시오." value={title} onChange={e => setTitle(e.target.value)}/>
                 <textarea className="input__text" name="main" placeholder="본문을 입력하시오" value={main} onChange={e => setMain(e.target.value)} />
                 <div className="modal__button">
-                    <button onClick={e => post(title , main)}>post</button>
-                    <button onClick={e => setModalOpen("modal__none")}>close</button>
+                    <button onClick={e => setModalOpen("modal__none")} className="modal__close__button">cancle</button>
+                    <button onClick={e => post(title , main)} className="modal__post__button">post</button>    
                 </div>
             </div>
           </form>

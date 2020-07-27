@@ -19,15 +19,20 @@ function DetailPost({location}) {
       <div className="detail__post">
           <Link to="/home"><button className="post__button">뒤로가기</button></Link>
           <div className="detail__title">
-            제목 : {info.title}
+            <div className="detail__title__title">
+              {info.title}
+            </div>
+            <div className="detail__title__time">
+              {info.time}
+            </div>
           </div>
           <div className="detail__mainText">
             {info.main}
-            {info.time}
-            <button onClick={e=> likeFunc()}>좋아요:{like}</button>
-            <button onClick={e=> badFunc()}>싫어요:{bad}</button>
-            <button onClick={e=> console.log(like , bad)}></button>
           </div>
+          <div className="detail__footer">
+              <button onClick={e=> likeFunc()} className="detail__button__like">좋아요 {like}</button>
+              <button onClick={e=> badFunc()} className="detail__button__bad">싫어요 {bad}</button>
+            </div>
       </div>
     );
 }
