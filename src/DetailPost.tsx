@@ -9,10 +9,13 @@ function DetailPost({location}) {
 
     function likeFunc(){
       setLike(like+1);
-      axios.put('http://localhost:8000/api/like',{params: {_id: info._id}, data:{like: like , bad: bad}})
+      axiosFunc(like+1 , bad)
     }
     function badFunc(){
       setBad(bad+1);
+      axiosFunc(like , bad+1)
+    }
+    function axiosFunc(like, bad){
       axios.put('http://localhost:8000/api/like',{params: {_id: info._id}, data:{like: like , bad: bad}})
     }
     return (

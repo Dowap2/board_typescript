@@ -1,6 +1,5 @@
 import React, { useState } from 'react'
 import axios from 'axios'
-import { isPatternLike } from '@babel/types';
 
 type BoardModalProps = {
     modalOpen: string;
@@ -35,10 +34,10 @@ function BoardModal({modalOpen , setModalOpen}: BoardModalProps) {
         let year = today.getFullYear();
         let month = today.getMonth() + 1;
         let date = today.getDate();
-        let hours = today.getHours(); // 시
+        let hours = today.getHours();
         let minutes = today.getMinutes();
         
-        return (year+'/'+month+'/'+date+'/'+hours+'시'+minutes+'분');
+        return (year+'-'+month+'-'+date+'-'+hours+':'+minutes);
     }
 
     return (

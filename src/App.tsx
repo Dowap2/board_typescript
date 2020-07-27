@@ -1,5 +1,5 @@
 import React from 'react';
-import { BrowserRouter as Router, Route, } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
 import Home from './Home'
 import DetailPost from './DetailPost'
 import './App.css'
@@ -13,17 +13,19 @@ function App() {
   }
 
   return (
-    <div className="App">
-      <header className="header">
-        <div className="logo__box">
-          <img src={logo} className="logo"/>
-        </div>
-      </header>
-      <Router>
-        <Route path="/home" component={Home}/>
-        <Route path="/post" component={DetailPost}/>
-      </Router>
-    </div>
+    <Router>
+      <div className="App">
+        <header className="header">
+        <Link to="/home">
+          <div className="logo__box">
+            <img src={logo} alt="logo" className="logo"/>
+          </div>
+        </Link>
+        </header>
+          <Route path="/home" component={Home}/>
+          <Route path="/post" component={DetailPost}/>
+      </div>
+    </Router>
   );
 }
 export default App;
