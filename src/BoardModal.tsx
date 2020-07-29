@@ -25,10 +25,9 @@ function BoardModal({modalOpen, setModalOpen}: BoardModalProps) {
                 like: like,
                 bad: bad,
             }
-        }).then(response => {
-            console.log(response)
-            console.log(time)
-        }).catch(err => {console.log(err)})
+        })
+        .then(response => {console.log(response)})
+        .catch(err => {console.log(err)})
     }
     function setTime(){
         let today:Date = new Date();

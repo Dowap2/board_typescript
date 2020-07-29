@@ -9,10 +9,7 @@ function Home() {
     return (
       <div>
           <button className="post__button" onClick={onClick}>글쓰기</button>
-          <BoardModal
-            modalOpen={modalOpen}
-            setModalOpen={setModalOpen}
-          />
+          <BoardModal modalOpen={modalOpen} setModalOpen={setModalOpen}/>
           <Board />
       </div>
     );

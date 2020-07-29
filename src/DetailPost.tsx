@@ -7,20 +7,28 @@ function DetailPost({location}) {
     const [like, setLike] = useState<Number>(info.like)
     const [bad, setBad] = useState<Number>(info.bad)
 
-    function likeFunc() {
-      setLike(like+1);
-      axiosFunc(like+1, bad)
+    function buttonClick(value) {
+      if(value === "like") {
+        setLike(like+1);
+      } else {
+        setBad(bad+1);
+      }
+
+      axiosFunc(like, bad)
     }
-    function badFunc() {
-      setBad(bad+1);
-      axiosFunc(like, bad+1)
-    }
+
     function axiosFunc(like, bad) {
-      axios.put('http://localhost:8000/api/like',{params: {_id: info._id}, data:{like: like , bad: bad}})
+      axios.put(
+        'http://localhost:8000/api/like',
+        {params: { _id: info._id }, data: {like: like , bad: bad}}
+      )
     }
+
     return (
       <div className="detail__post">
-          <Link to="/home"><button className="post__button">뒤로가기</button></Link>
+          <Link to="/home">
+            <button className="post__button">뒤로가기</button>
+          </Link>
           <div className="detail__title">
             <div className="detail__title__title">
               {info.title}
@@ -33,9 +41,9 @@ function DetailPost({location}) {
             {info.main}
           </div>
           <div className="detail__footer">
-              <button onClick={e=> likeFunc()} className="detail__button__like">좋아요 {like}</button>
-              <button onClick={e=> badFunc()} className="detail__button__bad">싫어요 {bad}</button>
-            </div>
+              <button onClick={e=> buttonClick("like")} className="detail__button__like">좋아요 {like}</button>
+              <button onClick={e=> buttonClick("bad")} className="detail__button__bad">싫어요 {bad}</button>
+          </div>
       </div>
     );
 }
