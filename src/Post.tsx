@@ -8,7 +8,7 @@ type GreetingsProps = {
     bad: Number
 };
 
-function Post({title , index , time, like ,bad}: GreetingsProps) {
+function Post({title, index, time, like, bad}: GreetingsProps) {
     return (
       <div className="post__list">
         <div className="post__list__index">{index}</div>

@@ -4,18 +4,18 @@ import {Link} from 'react-router-dom'
 
 function DetailPost({location}) {
     const info:{title: string , main: string, _id:string , time:string, like:Number , bad:Number} = location.state;
-    const [like , setLike] = useState<Number>(info.like)
-    const [bad , setBad] = useState<Number>(info.bad)
+    const [like, setLike] = useState<Number>(info.like)
+    const [bad, setBad] = useState<Number>(info.bad)
 
-    function likeFunc(){
+    function likeFunc() {
       setLike(like+1);
-      axiosFunc(like+1 , bad)
+      axiosFunc(like+1, bad)
     }
-    function badFunc(){
+    function badFunc() {
       setBad(bad+1);
-      axiosFunc(like , bad+1)
+      axiosFunc(like, bad+1)
     }
-    function axiosFunc(like, bad){
+    function axiosFunc(like, bad) {
       axios.put('http://localhost:8000/api/like',{params: {_id: info._id}, data:{like: like , bad: bad}})
     }
     return (

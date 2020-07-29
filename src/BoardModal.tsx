@@ -6,14 +6,15 @@ type BoardModalProps = {
     setModalOpen: any;
 };
 
-function BoardModal({modalOpen , setModalOpen}: BoardModalProps) {
-    const [title , setTitle] = useState<string>("");
-    const [main , setMain] = useState<string>("");
+function BoardModal({modalOpen, setModalOpen}: BoardModalProps) {
+    const [title, setTitle] = useState<string>("");
+    const [main, setMain] = useState<string>("");
     const like:Number = 0;
     const bad:Number = 0;
 
-    function post(title , main){
+    function post(title, main) {
         let time:string = setTime();
+
         axios({
             method:'post',
             url: 'http://localhost:8000/api',
@@ -30,14 +31,10 @@ function BoardModal({modalOpen , setModalOpen}: BoardModalProps) {
         }).catch(err => {console.log(err)})
     }
     function setTime(){
-        let today = new Date();   
-        let year = today.getFullYear();
-        let month = today.getMonth() + 1;
-        let date = today.getDate();
-        let hours = today.getHours();
-        let minutes = today.getMinutes();
+        let today:Date = new Date();
+        let time:string = today.getFullYear()+'-'+(today.getMonth() + 1)+'-'+today.getDate()+'-'+today.getHours()+':'+today.getMinutes();
         
-        return (year+'-'+month+'-'+date+'-'+hours+':'+minutes);
+        return (time);
     }
 
     return (

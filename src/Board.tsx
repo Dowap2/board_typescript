@@ -5,53 +5,57 @@ import axios from 'axios';
 
 function Board() {
   
-  const [boolean , setBoolean] = useState<boolean>(true);
-  const [modalOpen , setModalOpen] = useState<string>("edit__modal__none");
-  let [post , setPost] = useState<any[]>([]);
-  const [id , setId] = useState<string>("");
-  const [title , setTitle] = useState<string>("");
-  const [main , setMain] = useState<string>("");
+  const [boolean, setBoolean] = useState<boolean>(true);
+  const [modalOpen, setModalOpen] = useState<string>("edit__modal__none");
+  const [id, setId] = useState<string>("");
+  const [title, setTitle] = useState<string>("");
+  const [main, setMain] = useState<string>("");
+  let [post, setPost] = useState<any[]>([]);
   let index:number = 1;
 
-  function postFunc(list){
+  function postFunc(list) {
     list.forEach(function(list){
-      setPost(post = post.concat(<div>
-                                  <div className="post__list__small__box">
-                                    <Link to={{pathname: '/post', state: list}}>
-                                      <Post title={list.title} index={index} time={list.time} like={list.like} bad={list.bad}/>
-                                    </Link>
-                                    <button className="delete__button" onClick={e=> deleteFunc(list._id)}>delete</button>
-                                    <button className="edit__button" onClick={e=> editModal(list._id)}>edit</button>
-                                  </div>
-                                </div>
-                                )
+      setPost(post = post.concat
+        (<div>
+          <div className="post__list__small__box">
+            <Link to={{pathname: '/post', state: list}}>
+              <Post title={list.title} index={index} time={list.time} like={list.like} bad={list.bad}/>
+            </Link>
+            <button className="delete__button" onClick={e=> deleteFunc(list._id)}>delete</button>
+            <button className="edit__button" onClick={e=> editModal(list._id)}>edit</button>
+          </div>
+        </div>)                 
       )
       index += 1;
     })
-  }
-  function editModal(id){
+  };
+
+  function editModal(id) {
     setModalOpen("edit__modal__block");
     setId(id);
   }
-  function editFunc(id , title , main){
+
+  function editFunc(id, title, main) {
     axios.put('http://localhost:8000/api',{params: {_id: id}, data:{title: title , main: main}})
     setModalOpen("modal__none");
   }
-  function deleteFunc(id){
+
+  function deleteFunc(id) {
     axios.delete('http://localhost:8000/api', {data:{id:id}, headers:{Authorization: "token"}})
     window.location.reload()
   }
 
-  if(boolean === true){
+  if(boolean === true) {
     axios({
       method: 'get',
       url: 'http://localhost:8000/api',
       responseType: 'text'
     })
-      .then(response => {
-        postFunc(response.data.contact)
-        console.log(response)
-      }).catch(err => {console.log(err)})
+    .then(response => {
+      postFunc(response.data.contact)
+      console.log(response)
+    }).catch(err => {console.log(err)})
+    //
     setBoolean(false)
   }
 
