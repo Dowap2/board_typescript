@@ -1,7 +1,8 @@
 import React, { useState } from 'react'
 import {Link} from 'react-router-dom'
-import Post from './Post'
 import axios from 'axios';
+
+import Post from './Post'
 
 function Board() {
   

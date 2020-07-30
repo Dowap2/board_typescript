@@ -3,7 +3,7 @@ import axios from 'axios';
 import {Link} from 'react-router-dom'
 
 function DetailPost({location}) {
-    const info:{title: string , main: string, _id:string , time:string, like:Number , bad:Number} = location.state;
+    const info: {title: string, main: string, _id:string, time:string, like:Number, bad:Number} = location.state;
     const [like, setLike] = useState<Number>(info.like)
     const [bad, setBad] = useState<Number>(info.bad)
 
